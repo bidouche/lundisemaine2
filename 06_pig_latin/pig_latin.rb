@@ -1,29 +1,14 @@
-#x = "from"
-#x<< 'ay'
-#puts x
-#def translate(str)
-#	
-#	str.split.map {|x| if x.index(/[aeiouy]/) == 0 then x + "ay"
-#end}
-#end
-#translate('apple')
-#
-#mot = "bbanana"
 def translate(mot)
-	
 	rr = ['a','e','i','o','u','y']
- 	if rr.include? mot[0]
- 		then mot + "ay"
- 	elsif (!rr.include? mot[0]) && (rr.include? mot[1])
- 		then mot[1..mot.length] + mot[0] + "ay"
-	elsif !rr.include? mot[0..1]
-		then mot[2..mot.length] + mot[0] + mot[1] + "ay"
- 		
-  end 
-	
-end
-#translate (mot)
-#mot = "bouge"
-#puts mot[0..1]
+	mot.split.map { |x|	
+ 	if (rr.include? x[0])
+ 		then x + "ay"
+ 	elsif ((!rr.include? x[0]) && (rr.include? x[1]) && x[0..1] !="qu")
+ 		then x[1..x.length] + x[0] + "ay"
+	elsif ((!rr.include? x[0..1]) &&  (rr.include? x[2]) && x[1..2] !="qu")
+		then x[2..x.length] + x[0] + x[1] + "ay"
+ 	elsif (!rr.include? x[0..2]) then x[3..x.length] + x[0..2] + "ay"
+  end}.join(' ')
+end	
 
 
